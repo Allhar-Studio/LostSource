@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-returning-short.wav-029f9e85a69bd0e999250e9586cc4588.sample"
+
+[deps]
+
+source_file="res://Sounds/POL-returning-short.wav"
+dest_files=[ "res://.import/POL-returning-short.wav-029f9e85a69bd0e999250e9586cc4588.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

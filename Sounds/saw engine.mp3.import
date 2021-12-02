@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/saw engine.mp3-7cb601f0345e78b83ae737c2dc1a4b3b.mp3str"
+
+[deps]
+
+source_file="res://Sounds/saw engine.mp3"
+dest_files=[ "res://.import/saw engine.mp3-7cb601f0345e78b83ae737c2dc1a4b3b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

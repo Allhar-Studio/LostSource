@@ -1,0 +1,50 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[sub_resource type="Shader" id=24]
+code = "shader_type canvas_item;
+
+uniform sampler2D dissolve_texture;
+uniform vec4 burn_color : hint_color = vec4(1);
+uniform float burn_size : hint_range(0, 0.5);
+uniform float dissolve_amount : hint_range(0, 1);
+uniform float emission_amount;
+uniform float uvRotationDegrees = 0.0;
+uniform vec2 uvRotationPivot = vec2(0.5);
+
+mat2 get2dRotationMatrix(float angleRadians)
+{
+    float s = sin(angleRadians);
+    float c = cos(angleRadians);
+    return mat2(vec2(c, s), vec2(-s, c));
+}
+
+void fragment() {
+	vec4 out_color = texture(TEXTURE, UV);
+	
+	vec2 uv = UV; // whatever your UV is
+    uv -= floor(uv); // make it into [0.0, 1.0) x [0.0, 1.0) range
+    uv -= uvRotationPivot; // move origin to the rotation pivot
+    uv *= get2dRotationMatrix(radians(uvRotationDegrees)); // rotate
+    uv += uvRotationPivot; // move origin back
+
+	float sample = texture(dissolve_texture, uv).r;
+	float emission_value = 1.0 - smoothstep(dissolve_amount, dissolve_amount + burn_size, sample);
+	vec3 emission = burn_color.rgb * emission_value * emission_amount;
+	
+	COLOR = vec4(max(out_color.rgb, emission), smoothstep(dissolve_amount - burn_size, dissolve_amount, sample) * out_color.a);
+}"
+
+[sub_resource type="Gradient" id=25]
+
+[sub_resource type="GradientTexture" id=26]
+gradient = SubResource( 25 )
+
+[resource]
+shader = SubResource( 24 )
+shader_param/burn_color = Color( 0.486275, 1, 0.0588235, 1 )
+shader_param/burn_size = 0.382
+shader_param/dissolve_amount = 0.461
+shader_param/emission_amount = 5.0
+shader_param/uvRotationDegrees = 90.0
+shader_param/uvRotationPivot = Vector2( 0.5, 0.5 )
+shader_param/dissolve_texture = SubResource( 26 )

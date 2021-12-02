@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/battery-collect.mp3-8a11aec387251a4f0bf28b8d88c03fc9.mp3str"
+
+[deps]
+
+source_file="res://Sounds/battery-collect.mp3"
+dest_files=[ "res://.import/battery-collect.mp3-8a11aec387251a4f0bf28b8d88c03fc9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

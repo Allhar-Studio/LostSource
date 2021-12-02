@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-net-bots-short.wav-4a0889f911cb065d57dd8d0b46818dc8.sample"
+
+[deps]
+
+source_file="res://Sounds/POL-net-bots-short.wav"
+dest_files=[ "res://.import/POL-net-bots-short.wav-4a0889f911cb065d57dd8d0b46818dc8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

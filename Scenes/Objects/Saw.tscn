@@ -1,0 +1,78 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://Scripts/Props/Saw.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Saw/0001.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Saw/0000.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Saw/0002.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Saw/0027.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Saw/0023.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Saw/0026.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Saw/0028.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Saw/0022.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Saw/0024.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Saw/0029.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Saw/0030.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Saw/0025.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Saw/0008.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Saw/0011.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Saw/0014.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Saw/0016.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Saw/0006.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Saw/0009.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Saw/0003.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Saw/0010.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Saw/0012.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Saw/0013.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Saw/0015.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Saw/0005.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Saw/0017.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Saw/0018.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Saw/0019.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Saw/0004.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Saw/0007.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Saw/0020.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Saw/0021.png" type="Texture" id=32]
+[ext_resource path="res://Sounds/saw engine.mp3" type="AudioStream" id=33]
+[ext_resource path="res://Sounds/sawSlash.mp3" type="AudioStream" id=34]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 20 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 18 ), ExtResource( 30 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 31.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 90.1388
+
+[node name="Saw" type="Area2D"]
+rotation = -0.98262
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+
+[node name="Base" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Base"]
+scale = Vector2( 0.45, 0.45 )
+z_index = -1
+frames = SubResource( 3 )
+frame = 12
+speed_scale = 1.5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="EngineSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 33 )
+volume_db = 20.0
+autoplay = true
+max_distance = 500.0
+
+[node name="SlashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 34 )
+volume_db = 10.0
+max_distance = 500.0
+
+[connection signal="body_entered" from="." to="." method="_on_Saw_body_entered"]
