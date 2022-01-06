@@ -1,15 +1,9 @@
 extends CanvasLayer
 
-onready var player: Player = get_parent().get_node("Player")
-onready var anim: AnimationPlayer = $AnimationPlayer
+onready var anim: AnimationPlayer = $FadeAnimationPlayer
 
-func _ready():
-	var conect_dead_signal = player.connect("dead", self, "_on_Player_dead")
-	if conect_dead_signal != 0:
-		print(conect_dead_signal)
+func _on_ChangeLevel_change() -> void:
+	anim.play("fade_in2")
 
-func _on_Player_dead():
+func _on_Player_dead() -> void:
 	anim.play("fade_in")
-	
-func restart():
-	GameManager.restart()

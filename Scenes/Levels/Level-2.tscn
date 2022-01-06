@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Objects/ScreeShaker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/Camera/Camera.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/UI/FadeEffect.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=7]
 [ext_resource path="res://Post processing tool/PostProcessing_tool.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Objects/ParallaxBackground.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Objects/ParallaxForeground.tscn" type="PackedScene" id=12]
@@ -20,6 +21,7 @@ glow_strength = 0.92
 glow_bloom = 0.14
 
 [node name="Level-2" type="Node"]
+script = ExtResource( 7 )
 
 [node name="PostProcessingLayer" type="CanvasLayer" parent="."]
 layer = 125

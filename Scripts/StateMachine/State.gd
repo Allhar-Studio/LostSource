@@ -3,8 +3,11 @@ extends Node
 
 var state_machine = null
 
-func enter(_msg: = {}):
-	pass
+var is_exiting_state: bool = false
+
+func enter(_msg: = {}) -> void:
+	#print(self.name)
+	is_exiting_state = false
 	
 func update(_delta: float) -> void:
 	pass
@@ -16,4 +19,4 @@ func physics_update(_delta: float) -> void:
 	pass
 
 func exit() -> void:
-	pass
+	is_exiting_state = true

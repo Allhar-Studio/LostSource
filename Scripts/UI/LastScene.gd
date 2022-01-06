@@ -2,13 +2,13 @@ extends Control
 
 onready var anim: AnimationPlayer = $AnimationPlayer
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_pause"):
 		var _next_scene = get_tree().change_scene_to(Levels.ui["Credits"])
 	if Input.is_action_just_pressed("ui_jump"):
 		_handle_animation(anim.current_animation)
 
-func _handle_animation(name: String):
+func _handle_animation(name: String) -> void:
 	match name:
 		"First":
 			anim.play("Second")
@@ -21,5 +21,5 @@ func _handle_animation(name: String):
 		"Fifth":
 			var _next_scene = get_tree().change_scene_to(Levels.ui["Credits"])
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(anim_name) -> void:
 	_handle_animation(anim_name)

@@ -1,0 +1,215 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Fonts/rexlia rg.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/UI/Configs.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/grabble-whit.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/lightning-big.png" type="Texture" id=4]
+[ext_resource path="res://BG/Blur.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/grabble-green.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/TutorialFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Sprites/Icons/Keyboard&Mouse/Dark/Backspace_Alt_Key_Dark.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=6]
+size = 120
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+border_width_left = 20
+border_width_top = 20
+border_width_right = 30
+border_width_bottom = 20
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.498039, 0.894118, 0.388235, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 1
+border_width_bottom = 10
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.498039, 0.894118, 0.388235, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="Config" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="BG" type="TextureRect" parent="CanvasLayer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 681.0
+margin_top = 64.0
+margin_right = 1681.0
+margin_bottom = 364.0
+custom_fonts/normal_font = SubResource( 6 )
+text = "Settings
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="Control" parent="."]
+margin_left = 118.0
+margin_top = 295.0
+margin_right = 727.0
+margin_bottom = 455.0
+rect_scale = Vector2( 0.94708, 1.1059 )
+
+[node name="MasterLabel" type="Label" parent="VBoxContainer"]
+margin_right = 609.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 9 )
+text = "Master Volume   100%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer"]
+margin_top = 63.0
+margin_right = 609.0
+margin_bottom = 160.0
+custom_icons/grabber_highlight = ExtResource( 6 )
+custom_icons/grabber = ExtResource( 3 )
+custom_styles/slider = SubResource( 10 )
+custom_styles/grabber_area_highlight = SubResource( 12 )
+custom_styles/grabber_area = SubResource( 11 )
+max_value = 1.0
+step = 0.01
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="Control" parent="."]
+margin_left = 118.0
+margin_top = 510.0
+margin_right = 727.0
+margin_bottom = 670.0
+rect_scale = Vector2( 0.94708, 1.1059 )
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer2"]
+margin_right = 609.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 9 )
+text = "Music Volume     100%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer2"]
+margin_top = 63.0
+margin_right = 609.0
+margin_bottom = 160.0
+custom_icons/grabber_highlight = ExtResource( 6 )
+custom_icons/grabber = ExtResource( 3 )
+custom_styles/slider = SubResource( 10 )
+custom_styles/grabber_area_highlight = SubResource( 12 )
+custom_styles/grabber_area = SubResource( 11 )
+max_value = 1.0
+step = 0.01
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer3" type="Control" parent="."]
+margin_left = 118.0
+margin_top = 743.0
+margin_right = 727.0
+margin_bottom = 903.0
+rect_scale = Vector2( 0.94708, 1.1059 )
+
+[node name="SfxLabel" type="Label" parent="VBoxContainer3"]
+margin_right = 609.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 9 )
+text = "Sfx Volume         100%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SfxSlider" type="HSlider" parent="VBoxContainer3"]
+margin_top = 63.0
+margin_right = 609.0
+margin_bottom = 160.0
+custom_icons/grabber_highlight = ExtResource( 6 )
+custom_icons/grabber = ExtResource( 3 )
+custom_styles/slider = SubResource( 10 )
+custom_styles/grabber_area_highlight = SubResource( 12 )
+custom_styles/grabber_area = SubResource( 11 )
+max_value = 1.0
+step = 0.01
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Lightning" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.498039, 0.894118, 0.388235, 1 )
+margin_left = 832.0
+margin_top = 1.43051e-06
+margin_right = 1344.0
+margin_bottom = 512.0
+rect_rotation = 6.6
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer"]
+margin_left = 1492.0
+margin_top = 935.0
+margin_right = 1592.0
+margin_bottom = 1035.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 1600.0
+margin_top = 963.0
+margin_right = 1785.0
+margin_bottom = 1026.0
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]Menu[/center]"
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="VBoxContainer/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer3/SfxSlider" to="." method="_on_SfxSlider_value_changed"]

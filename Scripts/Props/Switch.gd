@@ -11,17 +11,17 @@ export var is_activate := false
 onready var sprite: Sprite = $Area2D/Sprite
 onready var switch_sound: AudioStreamPlayer2D = $SwitchSound
 
-func _ready():
+func _ready() -> void:
 	if is_activate:
 		_change_sahder_param(true)
 	else:
 		_change_sahder_param(false)
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_activate") and player_is_over:
 		_handle_switch()
 
-func _handle_switch():
+func _handle_switch() -> void:
 	switch_sound.play()
 	
 	if not is_activate:
@@ -35,18 +35,18 @@ func _handle_switch():
 	if player != null:
 		player.handle_switch(is_activate)
 
-func _change_sahder_param(active: bool):
+func _change_sahder_param(active: bool) -> void:
 	if active:
 		sprite.material.set_shader_param("emission_amount", 3)
 	else:
 		sprite.material.set_shader_param("emission_amount", 0)
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(body) -> void:
 	if body.name == "Player":
 		player_is_over = true
 		player = body
 
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(body) -> void:
 	if body.name == "Player":
 		player_is_over = false
 		player = null

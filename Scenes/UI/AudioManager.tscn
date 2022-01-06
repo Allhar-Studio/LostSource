@@ -10,7 +10,9 @@ script = ExtResource( 2 )
 [node name="MainSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -12.0
+bus = "Music"
 
 [node name="MenuSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -15.0
+bus = "Music"

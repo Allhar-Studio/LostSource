@@ -159,6 +159,7 @@ color = Color( 0.482353, 0.976471, 0.207843, 1 )
 [node name="CollectedSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = 5.0
+bus = "SFX"
 
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false

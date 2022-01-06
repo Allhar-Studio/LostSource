@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Camera/Camera.gd" type="Script" id=1]
 [ext_resource path="res://tileset-level-test/Tile2/tileset_Tile2.tres" type="TileSet" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://Scenes/Objects/Saw.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Objects/ScreeShaker.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Objects/CheckPoint.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sprites/MovingPlatform/MovingPlatformEmission.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=19]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -24,7 +26,34 @@ glow_enabled = true
 glow_strength = 0.92
 glow_bloom = 0.14
 
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform sampler2D emission_texture;
+uniform vec4 glow_color : hint_color = vec4(1.0);
+uniform float emission_amount : hint_range(0, 10);
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	vec4 emission_color = texture(emission_texture, UV);
+	vec3 emission = glow_color.rgb * emission_amount;
+	
+	if(emission_color.r > 0f) {
+		COLOR = vec4(max(color.rgb, emission), color.a);
+	} else {
+		COLOR = color;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = SubResource( 3 )
+shader_param/glow_color = Color( 0.486275, 1, 0.0588235, 1 )
+shader_param/emission_amount = 3.0
+shader_param/emission_texture = ExtResource( 18 )
+
 [node name="LevelTest" type="Node"]
+script = ExtResource( 19 )
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
 
@@ -34,9 +63,6 @@ glow_bloom = 0.14
 visible = false
 
 [node name="RightBlock" parent="FadeEffect" index="1"]
-visible = false
-
-[node name="DownBlock" parent="FadeEffect" index="3"]
 visible = false
 
 [node name="Pause" type="CanvasLayer" parent="."]
@@ -142,6 +168,9 @@ z_index = -1
 
 [node name="MovingPlatform" parent="." instance=ExtResource( 11 )]
 position = Vector2( 3968, 704 )
+
+[node name="Icon" parent="MovingPlatform/Kinematic" index="0"]
+material = SubResource( 4 )
 
 [node name="Switch" parent="MovingPlatform" index="2"]
 position = Vector2( -1280, -384 )

@@ -3,7 +3,7 @@ extends Node2D
 onready var sprite: Sprite = $Sprite
 onready var light: Light2D = $Light2D
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	if GameManager.checkpoint["name"] == self.name:
 		sprite.material.set_shader_param("emission_amount", 1)
 		light.visible = true
@@ -11,7 +11,7 @@ func _physics_process(_delta):
 		sprite.material.set_shader_param("emission_amount", 0)
 		light.visible = false
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(body) -> void:
 	if body.name == "Player":
 		body.over_checkpoint()
 		GameManager.checkpoint["is_active"] = true
@@ -19,6 +19,6 @@ func _on_Area2D_body_entered(body):
 		GameManager.checkpoint["name"] = self.name
 
 
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(body) -> void:
 	if body.name == "Player":
 		body.out_checkpoint()

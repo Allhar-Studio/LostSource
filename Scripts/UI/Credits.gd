@@ -1,5 +1,5 @@
 extends Control
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_back"):
 		var _menu_scene = get_tree().change_scene_to(Levels.ui["Main"])

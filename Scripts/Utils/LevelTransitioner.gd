@@ -1,14 +1,14 @@
 extends Node2D
 
-onready var fade_anim: AnimationPlayer = get_parent().get_node("FadeEffect").get_node("AnimationPlayer")
+signal change
 
-onready var anim_timer: Timer = $Timer
+func _on_FadeAnimationPlayer_animation_finished(anim_name) -> void:
+	if anim_name == "fade_in":
+		GameManager.restart()
+	if anim_name == "fade_in2":
+		GameManager.change_level()
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(body) -> void:
 	if body.name == "Player":
 		body.transition()
-		fade_anim.play("fade_in2")
-		anim_timer.start()
-
-func _on_Timer_timeout():
-	GameManager.change_level()
+		emit_signal("change")

@@ -8,17 +8,17 @@ var checkpoint = {
 	"name": ""
 }
 
-func _ready():
+func _ready() -> void:
 	pass
 	
-func restart():
+func restart() -> void:
 	var _reload_scene = get_tree().reload_current_scene()
 	
-func set_is_paused(value: bool):
+func set_is_paused(value: bool) -> void:
 	is_paused = value
 	get_tree().paused = is_paused
 
-func change_level():
+func change_level() -> void:
 	_reset_checkpoint()
 	var level_count = Levels.levels.size()
 	var current_scene = get_tree().get_current_scene().get_name()
@@ -32,7 +32,7 @@ func change_level():
 		AudioManager.stop_main_song()
 		var _last_scene = get_tree().change_scene_to(Levels.cutscenes["LastScene"])
 
-func _reset_checkpoint():
+func _reset_checkpoint() -> void:
 	checkpoint["is_active"] = false
 	checkpoint["position"] = Vector2.ZERO
 	checkpoint["name"] = ""

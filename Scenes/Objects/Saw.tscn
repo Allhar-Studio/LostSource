@@ -44,7 +44,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 90.1388
+radius = 80.9938
 
 [node name="Saw" type="Area2D"]
 rotation = -0.98262
@@ -57,7 +57,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.45, 0.45 )
 z_index = -1
 frames = SubResource( 3 )
-frame = 12
+frame = 2
 speed_scale = 1.5
 playing = true
 
@@ -69,10 +69,12 @@ stream = ExtResource( 33 )
 volume_db = 20.0
 autoplay = true
 max_distance = 500.0
+bus = "SFX"
 
 [node name="SlashSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 34 )
 volume_db = 10.0
 max_distance = 500.0
+bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_Saw_body_entered"]

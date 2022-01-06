@@ -8,14 +8,14 @@ onready var frequency: Timer = $Frequency
 onready var duration: Timer = $Duration
 
 
-func shake(_duration: float = 0.2, _frequency: float = 15.0, _amplitude: float = 16.0):
+func shake(_duration: float = 0.2, _frequency: float = 15.0, _amplitude: float = 16.0) -> void:
 	amplitude = _amplitude
 	duration.wait_time = _duration
 	frequency.wait_time = 1 / _frequency
 	duration.start()
 	frequency.start()
 
-func _new_shake():
+func _new_shake() -> void:
 	var rand = Vector2()
 	rand.x = rand_range(-amplitude, amplitude)
 	rand.y = rand_range(-amplitude, amplitude)
@@ -24,10 +24,10 @@ func _new_shake():
 	var _tween_start = shake_tween.start()
 
 
-func _on_Duration_timeout():
+func _on_Duration_timeout() -> void:
 	var _tween_interpolate = shake_tween.interpolate_property(camera, "offset", camera.offset, Vector2.ZERO, frequency.wait_time, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	var _tween_start = shake_tween.start()
 
 
-func _on_Frequency_timeout():
+func _on_Frequency_timeout() -> void:
 	_new_shake()

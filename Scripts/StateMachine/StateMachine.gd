@@ -12,6 +12,7 @@ func _ready() -> void:
 
 	for child in get_children():
 		child.state_machine = self
+		
 	state.enter()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -29,7 +30,7 @@ func _physics_process(delta: float) -> void:
 func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	if not has_node(target_state_name):
 		return
-
+	
 	state.exit()
 	state = get_node(target_state_name)
 	state.enter(msg)
