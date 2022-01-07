@@ -3,7 +3,7 @@ extends Node
 onready var ui = {
 	"Main": preload("res://Scenes/UI/MainMenu.tscn"),
 	"Credits": preload("res://Scenes/UI/Credits.tscn"),
-	"Settings": preload("res://Scenes/UI/Config.tscn")
+	"Settings": preload("res://Scenes/UI/SettingsMenu.tscn")
 }
 
 onready var cutscenes = {
