@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Fonts/rexlia rg.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/UI/SettingsHeader.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/Icons/Keyboard&Mouse/Dark/Arrow_Right_Key_Dark.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Icons/Keyboard&Mouse/Dark/Arrow_Left_Key_Dark.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Icons/Keyboard&Mouse/Dark/Q_Key_Dark.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Icons/Keyboard&Mouse/Dark/E_Key_Dark.png" type="Texture" id=4]
 
 [sub_resource type="Theme" id=14]
 
@@ -29,7 +29,7 @@ margin_left = 21.0
 margin_right = 133.0
 margin_bottom = 106.0
 theme = SubResource( 14 )
-icon = ExtResource( 4 )
+icon = ExtResource( 3 )
 flat = true
 
 [node name="General" type="Label" parent="."]
@@ -37,6 +37,7 @@ margin_left = 313.0
 margin_top = 21.0
 margin_right = 540.0
 margin_bottom = 85.0
+mouse_filter = 0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 13 )
 text = "General"
@@ -49,6 +50,7 @@ margin_left = 720.0
 margin_top = 21.0
 margin_right = 892.0
 margin_bottom = 85.0
+mouse_filter = 0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 13 )
 text = "Audio"
@@ -61,6 +63,7 @@ margin_left = 1072.0
 margin_top = 21.0
 margin_right = 1243.0
 margin_bottom = 85.0
+mouse_filter = 0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 13 )
 text = "Video"
@@ -73,6 +76,7 @@ margin_left = 1423.0
 margin_top = 21.0
 margin_right = 1607.0
 margin_bottom = 85.0
+mouse_filter = 0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 13 )
 text = "Inputs"
@@ -84,8 +88,13 @@ __meta__ = {
 margin_left = 1787.0
 margin_right = 1899.0
 margin_bottom = 106.0
-icon = ExtResource( 3 )
+icon = ExtResource( 4 )
 flat = true
 
+[connection signal="visibility_changed" from="." to="." method="_on_SettingsHeader_visibility_changed"]
 [connection signal="pressed" from="ArrowLeft" to="." method="_on_ArrowLeft_pressed"]
+[connection signal="gui_input" from="General" to="." method="_on_General_gui_input"]
+[connection signal="gui_input" from="Audio" to="." method="_on_Audio_gui_input"]
+[connection signal="gui_input" from="Video" to="." method="_on_Video_gui_input"]
+[connection signal="gui_input" from="Input" to="." method="_on_Input_gui_input"]
 [connection signal="pressed" from="ArrowRight" to="." method="_on_ArrowRight_pressed"]

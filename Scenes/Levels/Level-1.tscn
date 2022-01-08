@@ -51,7 +51,7 @@ vignette_multiplier = 0.5
 vignette_scale = 1.0
 
 [node name="Pause" type="CanvasLayer" parent="."]
-layer = 115
+layer = 126
 
 [node name="PauseMenu" parent="Pause" instance=ExtResource( 13 )]
 visible = false

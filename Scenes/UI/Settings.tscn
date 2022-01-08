@@ -39,6 +39,7 @@ border_color = Color( 0, 0, 0, 1 )
 [node name="Settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,6 +50,7 @@ __meta__ = {
 [node name="GeneralTab" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -57,6 +59,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -174,6 +177,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -182,14 +186,12 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Footer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Icon" type="TextureRect" parent="Footer"]
+[node name="Icon" type="TextureRect" parent="."]
 margin_left = 1492.0
 margin_top = 935.0
 margin_right = 1592.0
@@ -199,11 +201,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Footer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 1600.0
 margin_top = 963.0
 margin_right = 1785.0
 margin_bottom = 1026.0
+mouse_filter = 1
 custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
 bbcode_text = "[center]Back[/center]"

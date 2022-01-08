@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Fonts/rexlia rg.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/UI/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/Settings.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=6]
+size = 82
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 64
+size = 52
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -32,20 +37,55 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.392157 )
+color = Color( 0, 0, 0, 0.862745 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResumeButton" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -295.0
-margin_top = -165.0
-margin_right = 305.0
-margin_bottom = -53.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 716.0
+custom_constants/separation = 150
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 150.0
+custom_constants/margin_top = 50
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+margin_top = 50.0
+margin_right = 1920.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Game Paused[/center]"
+text = "Game Paused"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 300.0
+margin_right = 1920.0
+margin_bottom = 820.0
+custom_constants/separation = 40
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_left = 710.0
+margin_right = 1210.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 500, 100 )
+focus_neighbour_top = NodePath("../QuitButton")
+focus_neighbour_bottom = NodePath("../MainMenu")
+size_flags_horizontal = 4
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 1 )
@@ -57,15 +97,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainMenu" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -295.0
-margin_top = 4.0
-margin_right = 305.0
-margin_bottom = 116.0
+[node name="MainMenu" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_left = 710.0
+margin_top = 140.0
+margin_right = 1210.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 500, 100 )
+focus_neighbour_top = NodePath("../ResumeButton")
+focus_neighbour_bottom = NodePath("../Settings")
+size_flags_horizontal = 4
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 1 )
@@ -77,16 +117,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -295.0
-margin_top = 183.0
-margin_right = 305.0
-margin_bottom = 295.0
-focus_neighbour_top = NodePath("../ResumeButton")
+[node name="Settings" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_left = 710.0
+margin_top = 280.0
+margin_right = 1210.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 500, 100 )
+focus_neighbour_top = NodePath("../MainMenu")
+focus_neighbour_bottom = NodePath("../QuitButton")
+size_flags_horizontal = 4
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 3 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_left = 710.0
+margin_top = 420.0
+margin_right = 1210.0
+margin_bottom = 520.0
+rect_min_size = Vector2( 500, 100 )
+focus_neighbour_top = NodePath("../Settings")
+focus_neighbour_bottom = NodePath("../ResumeButton")
+size_flags_horizontal = 4
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 1 )
@@ -98,6 +157,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="ResumeButton" to="." method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="MainMenu" to="." method="_on_MainMenu_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[node name="Settings" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

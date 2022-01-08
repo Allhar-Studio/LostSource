@@ -48,7 +48,7 @@ margin_top = -316.0
 margin_bottom = 324.0
 
 [node name="Pause" type="CanvasLayer" parent="."]
-layer = 115
+layer = 126
 
 [node name="PauseMenu" parent="Pause" instance=ExtResource( 13 )]
 visible = false

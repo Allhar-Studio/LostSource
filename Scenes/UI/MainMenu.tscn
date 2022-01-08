@@ -167,7 +167,7 @@ __meta__ = {
 position = Vector2( 287, 617 )
 frames = SubResource( 68 )
 animation = "Idle"
-frame = 11
+frame = 2
 speed_scale = 0.5
 playing = true
 
@@ -184,9 +184,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 1344.0
+margin_left = 1247.0
 margin_top = 381.0
-margin_right = 1694.0
+margin_right = 1747.0
 margin_bottom = 931.0
 custom_constants/separation = 50
 __meta__ = {
@@ -194,9 +194,9 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_right = 350.0
+margin_right = 500.0
 margin_bottom = 100.0
-rect_min_size = Vector2( 350, 100 )
+rect_min_size = Vector2( 500, 100 )
 focus_neighbour_top = NodePath("../QuitButton")
 focus_neighbour_bottom = NodePath("../Settings")
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -212,9 +212,9 @@ __meta__ = {
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 margin_top = 150.0
-margin_right = 350.0
+margin_right = 500.0
 margin_bottom = 250.0
-rect_min_size = Vector2( 350, 100 )
+rect_min_size = Vector2( 500, 100 )
 focus_neighbour_top = NodePath("../Start")
 focus_neighbour_bottom = NodePath("../Credits")
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -230,9 +230,9 @@ __meta__ = {
 
 [node name="Credits" type="Button" parent="VBoxContainer"]
 margin_top = 300.0
-margin_right = 350.0
+margin_right = 500.0
 margin_bottom = 400.0
-rect_min_size = Vector2( 350, 100 )
+rect_min_size = Vector2( 500, 100 )
 focus_neighbour_top = NodePath("../Settings")
 focus_neighbour_bottom = NodePath("../QuitButton")
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -248,9 +248,9 @@ __meta__ = {
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 margin_top = 450.0
-margin_right = 350.0
+margin_right = 500.0
 margin_bottom = 550.0
-rect_min_size = Vector2( 350, 100 )
+rect_min_size = Vector2( 500, 100 )
 focus_neighbour_top = NodePath("../Credits")
 focus_neighbour_bottom = NodePath("../Start")
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )

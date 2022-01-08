@@ -21,9 +21,9 @@ func _ready():
 	labels[title_index].add_color_override("font_color", highlight_color)
 
 func _process(_delta) -> void:
-	if Input.is_action_just_pressed("ui_left"):
+	if Input.is_action_just_pressed("ui_settings_left"):
 		left_button.emit_signal("pressed")
-	if Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("ui_settings_right"):
 		right_button.emit_signal("pressed")
 
 func handle_change_tab() -> void:
@@ -53,3 +53,28 @@ func _on_ArrowLeft_pressed():
 
 func _on_ArrowRight_pressed():
 	handle_foward()
+
+func _on_General_gui_input(event):
+	if event.is_pressed() and event.button_index == 1:
+		title_index = 0
+		handle_change_tab()
+
+func _on_Audio_gui_input(event):
+	if event.is_pressed() and event.button_index == 1:
+		title_index = 1
+		handle_change_tab()
+
+func _on_Video_gui_input(event):
+	if event.is_pressed() and event.button_index == 1:
+		title_index = 2
+		handle_change_tab()
+
+func _on_Input_gui_input(event):
+	if event.is_pressed() and event.button_index == 1:
+		title_index = 3
+		handle_change_tab()
+
+func _on_SettingsHeader_visibility_changed():
+	if self.visible == true:
+		title_index = 0
+		handle_change_tab()
