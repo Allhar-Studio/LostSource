@@ -8,17 +8,12 @@
 [ext_resource path="res://Scenes/UI/FadeEffect.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=7]
 [ext_resource path="res://Post processing tool/PostProcessing_tool.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Environment.tres" type="Environment" id=9]
 [ext_resource path="res://Scenes/Objects/ParallaxBackground.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Objects/ParallaxForeground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Objects/ChangeLevel.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Objects/Spikes.tscn" type="PackedScene" id=17]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_strength = 0.92
-glow_bloom = 0.14
 
 [node name="Level-2" type="Node"]
 script = ExtResource( 7 )
@@ -54,7 +49,7 @@ layer = 126
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = ExtResource( 9 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 11 )]
 

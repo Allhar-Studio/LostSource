@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Fonts/rexlia rg.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/UI/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://Player/Sprites/Menu/IdleMenu.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/lightning-big.png" type="Texture" id=4]
 [ext_resource path="res://BG/Blur.png" type="Texture" id=5]
+[ext_resource path="res://Environment.tres" type="Environment" id=6]
 
 [sub_resource type="AtlasTexture" id=69]
 flags = 4
@@ -167,7 +168,7 @@ __meta__ = {
 position = Vector2( 287, 617 )
 frames = SubResource( 68 )
 animation = "Idle"
-frame = 2
+frame = 5
 speed_scale = 0.5
 playing = true
 
@@ -279,6 +280,9 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 6 )
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]

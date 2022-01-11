@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/UI/SettingsHeader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/rexlia rg.otf" type="DynamicFontData" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Scripts/Settings/AudioSettings.gd" type="Script" id=6]
 [ext_resource path="res://Fonts/TutorialFont.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Sprites/Icons/Keyboard&Mouse/Dark/Backspace_Alt_Key_Dark.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/ButtonSwitchUi/SwitchOff.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/ButtonSwitchUi/SwitchOn.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Settings/VideoSettings.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -35,6 +38,17 @@ border_width_left = 10
 border_width_top = 10
 border_width_bottom = 10
 border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+border_width_left = 100
+border_width_top = 100
+border_width_right = 100
+border_width_bottom = 100
+border_color = Color( 0.498039, 0.894118, 0.388235, 1 )
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -178,6 +192,104 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullScreen" type="Control" parent="VideoTab"]
+margin_left = -93.0
+margin_top = 243.0
+margin_right = 1827.0
+margin_bottom = 309.0
+
+[node name="Label" type="Label" parent="VideoTab/FullScreen"]
+margin_left = 487.0
+margin_top = 3.0
+margin_right = 769.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 1 )
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullScreenButton" type="CheckButton" parent="VideoTab/FullScreen"]
+margin_left = 1269.0
+margin_right = 1436.0
+margin_bottom = 66.0
+focus_neighbour_bottom = NodePath("../../Vsync/VsyncButton")
+custom_constants/hseparation = 0
+custom_icons/off = ExtResource( 9 )
+custom_icons/on = ExtResource( 10 )
+custom_styles/focus = SubResource( 5 )
+align = 1
+expand_icon = true
+
+[node name="Vsync" type="Control" parent="VideoTab"]
+margin_left = -93.0
+margin_top = 399.0
+margin_right = 1827.0
+margin_bottom = 465.0
+
+[node name="Label" type="Label" parent="VideoTab/Vsync"]
+margin_left = 487.0
+margin_top = 47.0
+margin_right = 664.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 1 )
+text = "Vsync"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VsyncButton" type="CheckButton" parent="VideoTab/Vsync"]
+margin_left = 1268.0
+margin_top = 44.0
+margin_right = 1435.0
+margin_bottom = 110.0
+custom_constants/hseparation = 0
+custom_icons/off = ExtResource( 9 )
+custom_icons/on = ExtResource( 10 )
+custom_styles/focus = SubResource( 5 )
+pressed = true
+align = 1
+expand_icon = true
+
+[node name="Brightness" type="Control" parent="VideoTab"]
+margin_left = 58.0
+margin_top = 590.0
+margin_right = 667.0
+margin_bottom = 750.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VideoTab/Brightness"]
+margin_left = 420.0
+margin_top = 77.5
+margin_right = 597.0
+margin_bottom = 136.5
+custom_fonts/font = SubResource( 1 )
+text = "Brightness"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BrightnessSlider" type="HSlider" parent="VideoTab/Brightness"]
+margin_left = 1226.25
+margin_top = 57.4999
+margin_right = 1835.25
+margin_bottom = 154.5
+custom_icons/grabber_highlight = ExtResource( 5 )
+custom_icons/grabber = ExtResource( 3 )
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 3 )
+custom_styles/grabber_area = SubResource( 4 )
+max_value = 1.0
+step = 0.01
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -219,3 +331,7 @@ __meta__ = {
 [connection signal="value_changed" from="AudioTab/VBoxContainer/MasterSlider" to="AudioTab" method="_on_MasterSlider_value_changed"]
 [connection signal="value_changed" from="AudioTab/VBoxContainer2/MusicSlider" to="AudioTab" method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="AudioTab/VBoxContainer3/SfxSlider" to="AudioTab" method="_on_SfxSlider_value_changed"]
+[connection signal="visibility_changed" from="VideoTab" to="VideoTab" method="_on_VideoTab_visibility_changed"]
+[connection signal="toggled" from="VideoTab/FullScreen/FullScreenButton" to="VideoTab" method="_on_FullScreenButton_toggled"]
+[connection signal="toggled" from="VideoTab/Vsync/VsyncButton" to="VideoTab" method="_on_VsyncButton_toggled"]
+[connection signal="value_changed" from="VideoTab/Brightness/BrightnessSlider" to="VideoTab" method="_on_BrightnessSlider_value_changed"]

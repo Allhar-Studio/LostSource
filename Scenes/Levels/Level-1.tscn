@@ -9,6 +9,7 @@
 [ext_resource path="res://Scripts/World.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/TutorialController.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Post processing tool/PostProcessing_tool.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Environment.tres" type="Environment" id=10]
 [ext_resource path="res://Scenes/Objects/ParallaxBackground.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Objects/ParallaxForeground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=13]
@@ -16,12 +17,6 @@
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 364, 288 )
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_strength = 0.92
-glow_bloom = 0.14
 
 [node name="Level-1" type="Node"]
 script = ExtResource( 7 )
@@ -87,7 +82,7 @@ disabled = true
 disabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = ExtResource( 10 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 11 )]
 
