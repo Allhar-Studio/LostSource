@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/UI/FadeEffect.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/TutorialController.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Post processing tool/PostProcessing_tool.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/PostProcessing.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Environment.tres" type="Environment" id=10]
 [ext_resource path="res://Scenes/Objects/ParallaxBackground.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Objects/ParallaxForeground.tscn" type="PackedScene" id=12]
@@ -33,17 +33,7 @@ margin_bottom = 324.0
 [node name="PostProcessingLayer" type="CanvasLayer" parent="."]
 layer = 120
 
-[node name="PostProcessing_tool" parent="PostProcessingLayer" instance=ExtResource( 9 )]
-adjustment_show = true
-adjustment_brightnes = 0.99
-adjustment_contrast = 1.084
-adjustment_saturation = 0.846
-bloom_show = true
-bloom_threshold = 0.6
-fog_overlay_color = Color( 1, 1, 1, 0.0666667 )
-vignette_show = true
-vignette_multiplier = 0.5
-vignette_scale = 1.0
+[node name="PostProcessing" parent="PostProcessingLayer" instance=ExtResource( 9 )]
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 126
