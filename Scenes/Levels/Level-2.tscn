@@ -19,7 +19,7 @@
 script = ExtResource( 7 )
 
 [node name="PostProcessingLayer" type="CanvasLayer" parent="."]
-layer = 125
+layer = 110
 
 [node name="PostProcessing" parent="PostProcessingLayer" instance=ExtResource( 8 )]
 

@@ -21,6 +21,11 @@ extents = Vector2( 364, 288 )
 [node name="Level-1" type="Node"]
 script = ExtResource( 7 )
 
+[node name="PostProcessingLayer" type="CanvasLayer" parent="."]
+layer = 110
+
+[node name="PostProcessing" parent="PostProcessingLayer" instance=ExtResource( 9 )]
+
 [node name="UI" parent="." instance=ExtResource( 5 )]
 layer = 115
 
@@ -29,11 +34,6 @@ layer = 115
 [node name="UpBlock" parent="FadeEffect" index="2"]
 margin_top = -316.0
 margin_bottom = 324.0
-
-[node name="PostProcessingLayer" type="CanvasLayer" parent="."]
-layer = 120
-
-[node name="PostProcessing" parent="PostProcessingLayer" instance=ExtResource( 9 )]
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 126

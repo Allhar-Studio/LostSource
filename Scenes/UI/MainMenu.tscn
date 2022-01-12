@@ -168,7 +168,7 @@ __meta__ = {
 position = Vector2( 287, 617 )
 frames = SubResource( 68 )
 animation = "Idle"
-frame = 5
+frame = 7
 speed_scale = 0.5
 playing = true
 
